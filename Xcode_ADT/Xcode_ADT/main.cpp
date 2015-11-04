@@ -16,6 +16,8 @@ int main() {
     
     BiTree<char> b;
     
-    b.BiNodeCount();
+    //b.BiNodeCount();
+    //b.BiTreeDepth();
+    b.PostOrder();
     return 0;
 }

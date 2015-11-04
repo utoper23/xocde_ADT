@@ -95,10 +95,7 @@ DataType LinkStack<DataType>::Pop(){
         temp->next = NULL;
         
         lenght --;
-    } else {
-        result = NULL;
-    }
-    
+    }    
     
     
     return result;

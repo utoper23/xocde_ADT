@@ -21,30 +21,78 @@ struct BiNode {
 template <class DataType>
 class BiTree {
 public:
-    BiTree(){root = Creat(root);}
+    BiTree(){root = Creat();}
     
     ~BiTree(){Release(root);}
-    void PreOrder(){PreOrder(root);}
-    void InOrder(){InOrder(root);}
-    void PostOrder(){PostOrder(root);}
+    void PreOrder(){preOrder(root);}
+    void InOrder(){inOrder(root);}
     void LeverOrder();
-    void BiNodeCount(){biNodeCount(root);}
-    void BiTreeDepth(){biTreeDepth(root);}
+    void SearchParents(DataType x) {
+        searchParents(root, x);
+    }
+    
+    void PostOrder(){
+        if (biNodeCount(root) == 0) {
+            cout << "NULL";
+        } else {
+            postOrder(root);
+            while (S1.StackEmpty()) {
+                cout << S1.Pop() << " ";
+            }
+        }
+    }
+    
+    void BiNodeCount(){
+        _NodeCount =  biNodeCount(root);
+        if (_NodeCount > 0) {
+            cout << "Node_COUNT: " << _NodeCount <<endl;
+        } else {
+            cout << "NULL" << endl;
+        }
+
+    }
+    
+    void BiTreeDepth(){
+        if (biNodeCount(root) == 0) {
+            cout << "NULL";
+        } else {
+            _BiTreeDepth = biTreeDepth(root);
+            cout << "BiTreeDepth:" << _BiTreeDepth << endl;
+        }
+        
+        
+    }
+    
+    void PrintN0(){
+        if (biNodeCount(root) == 0) {
+            cout << "NULL";
+        } else {
+            printN0(root);
+        }
+    }
     
 private:
     BiNode<DataType> *root; //指向根节点的头指针
-    BiNode<DataType> *Creat(BiNode<DataType> *bt);
+    BiNode<DataType> *Creat();
     void Release(BiNode<DataType> *bt);
-    void PreOrder(BiNode<DataType> *bt);
-    void InOrder(BiNode<DataType> *bt);
-    void PostPrder(BiNode<DataType> *bt);
-    void biNodeCount(BiNode<DataType> *bt);
-    void biTreeDepth(BiNode<DataType> *bt);
+    void preOrder(BiNode<DataType> *bt);
+    void onOrder(BiNode<DataType> *bt);
+    void postOrder(BiNode<DataType> *bt);
+    int biNodeCount(BiNode<DataType> *bt);
+    int biTreeDepth(BiNode<DataType> *bt);
+    void printN0(BiNode<DataType> *bt);
+    void searchParents(BiNode<DataType> *bt, DataType x);
+    
+    int _BiTreeDepth;
+    int _NodeCount;
+    LinkStack<DataType> S1;
     
 };
 
+
+// No Recursion Pre_Order Traversal
 template <class DataType>
-void BiTree<DataType>::PreOrder(BiNode<DataType> *bt) {
+void BiTree<DataType>::preOrder(BiNode<DataType> *bt) {
     LinkStack<BiNode<DataType>*> S;
     while (bt != NULL || S.StackEmpty()) {
         while (bt != NULL) {
@@ -55,14 +103,28 @@ void BiTree<DataType>::PreOrder(BiNode<DataType> *bt) {
     
         if (S.StackEmpty()) {
             bt = S.Pop();
-        
+            
             bt = bt->rchild;
         }
     }
 }
 
+
 template <class DataType>
-void BiTree<DataType>::biNodeCount(BiNode<DataType> *bt) {
+void BiTree<DataType>::postOrder(BiNode<DataType> *bt) {
+    
+    if (bt == NULL) {
+        return;
+    } else {
+        postOrder(bt->lchild);
+        postOrder(bt->rchild);
+        S1.Pusth(bt->data);
+    }
+}
+
+
+template <class DataType>
+int BiTree<DataType>::biNodeCount(BiNode<DataType> *bt) {
     LinkStack<BiNode<DataType>*> S;
     int NodeCount = 0;
     while (bt != NULL || S.StackEmpty()) {
@@ -80,11 +142,7 @@ void BiTree<DataType>::biNodeCount(BiNode<DataType> *bt) {
             bt = bt->rchild;
         }
     }
-    if (NodeCount > 0) {
-        cout << "Node_COUNT: " << NodeCount <<endl;
-    } else {
-        cout << "NULL" << endl;
-    }
+    return NodeCount;
     
 
 }
@@ -120,8 +178,9 @@ void BiTree<DataType>::LeverOrder() {
 
 
 template <class DataType>
-BiNode<DataType> *BiTree<DataType>::Creat(BiNode<DataType> *bt) {
+BiNode<DataType> *BiTree<DataType>::Creat() {
     DataType x;
+    BiNode<DataType> *bt;
     cin >> x;
     if (x == '#') {
         bt = NULL;
@@ -130,8 +189,8 @@ BiNode<DataType> *BiTree<DataType>::Creat(BiNode<DataType> *bt) {
         
         bt->data = x;
         
-        bt->lchild = Creat(bt->lchild);
-        bt->rchild = Creat(bt->rchild);
+        bt->lchild = Creat();
+        bt->rchild = Creat();
     }
     return bt;
 }
@@ -147,24 +206,52 @@ void BiTree<DataType>::Release(BiNode<DataType> *bt) {
 
 
 template <class DataType>
-void BiTree<DataType>::biTreeDepth(BiNode<DataType> *bt) {
-    LinkStack<BiNode<DataType>*> S;
-    int BiTreeDepth = 0;
-    while (bt != NULL || S.StackEmpty()) {
-        while (bt != NULL) {
-            S.Pusth(bt);
-            bt = bt->lchild;
-        }
-        
-        if (S.StackEmpty()) {
-            bt = S.Pop();
-            if (bt == root) {
-                
-            }
-            bt = bt->rchild;
-        }
+int BiTree<DataType>::biTreeDepth(BiNode<DataType> *bt) {
+    int i = 0, j = 0;
+    if (bt == NULL) {
+        return 0;
     }
+    
+    if (bt->lchild != NULL) {
+        i = biTreeDepth(bt->lchild);
+    }
+        
+    if (bt->rchild != NULL) {
+        j = biTreeDepth(bt->rchild);
+    }
+        
+    return i > j ? i + 1 : j + 1;
+}
 
+template <class DataType>
+void BiTree<DataType>::printN0(BiNode<DataType> *bt) {
+    if (bt == NULL) {
+        return;
+    } else {
+        if (bt->lchild == NULL && bt->rchild == NULL) {
+            cout << bt->data << " ";
+        }
+        printN0(bt->lchild);
+        
+        printN0(bt->rchild);
+        
+    }
 }
 
 
+template <class DataType>
+void BiTree<DataType>::searchParents(BiNode<DataType> *bt, DataType x) {
+    if (bt == NULL) {
+        return;
+    } else {
+        if (bt->lchild == x) {
+            cout << bt->data << " ";
+        }
+        printN0(bt->lchild);
+        
+        printN0(bt->rchild);
+        
+    }
+
+
+}
