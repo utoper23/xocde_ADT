@@ -85,6 +85,7 @@ private:
     
     int _BiTreeDepth;
     int _NodeCount;
+    int _ParentsFlag;
     LinkStack<DataType> S1;
     
 };
@@ -244,12 +245,15 @@ void BiTree<DataType>::searchParents(BiNode<DataType> *bt, DataType x) {
     if (bt == NULL) {
         return;
     } else {
-        if (bt->lchild == x) {
-            cout << bt->data << " ";
+        if (bt->lchild != NULL) {
+            if (bt->lchild->data == x) {
+                cout << bt->data << " ";
+            }
         }
-        printN0(bt->lchild);
+
+        searchParents(bt->lchild, x);
         
-        printN0(bt->rchild);
+        searchParents(bt->rchild, x);
         
     }
 

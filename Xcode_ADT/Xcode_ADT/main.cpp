@@ -18,6 +18,7 @@ int main() {
     
     //b.BiNodeCount();
     //b.BiTreeDepth();
-    b.PostOrder();
+    
+    b.SearchParents('A');
     return 0;
 }
