@@ -322,6 +322,7 @@ void BiTree<DataType>::printN0(BiNode<DataType> *bt) {
 }
 
 
+
 template <class DataType>
 void BiTree<DataType>::searchParents(BiNode<DataType> *bt, DataType x) {
     if (bt == NULL) {
