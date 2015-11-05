@@ -32,6 +32,8 @@ public:
     
     void EnQueue(DataType x);
     
+    void PrintQueue();
+    
     DataType DeQueue();
     
     DataType GetTop();
@@ -50,6 +52,14 @@ private:
     
 };
 
+template<class DataType>
+void LinkQueue<DataType>::PrintQueue() {
+    temp = first->next;
+    while (temp != NULL) {
+        cout << temp->data->data << " ";
+        temp = temp->next;
+    }
+}
 
 template<class DataType>
 int LinkQueue<DataType>::QueueEmpty() {
