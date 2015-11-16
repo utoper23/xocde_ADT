@@ -73,7 +73,6 @@ void MGraph<DataType>::initVisited() {
 }
 
 
-
 template <class DataType>
 void MGraph<DataType>::dFSTraverse(int v) {
     cout << vertex[v]; vistited[v] = 1;
