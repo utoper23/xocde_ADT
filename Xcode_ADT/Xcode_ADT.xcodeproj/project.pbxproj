@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		8401A24C1BE9EC70008FA2FC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8401A24B1BE9EC70008FA2FC /* main.cpp */; };
-		8401A2561BE9EC91008FA2FC /* SeqList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8401A2521BE9EC91008FA2FC /* SeqList.cpp */; settings = {ASSET_TAGS = (); }; };
-		8401A2571BE9EC91008FA2FC /* SeqQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8401A2541BE9EC91008FA2FC /* SeqQueue.cpp */; settings = {ASSET_TAGS = (); }; };
-		8401A2621BE9EC97008FA2FC /* BiTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8401A2581BE9EC97008FA2FC /* BiTree.cpp */; settings = {ASSET_TAGS = (); }; };
-		8401A2631BE9EC97008FA2FC /* DecimalTrueOctal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8401A25A1BE9EC97008FA2FC /* DecimalTrueOctal.cpp */; settings = {ASSET_TAGS = (); }; };
-		8401A2641BE9EC97008FA2FC /* LinkList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8401A25C1BE9EC97008FA2FC /* LinkList.cpp */; settings = {ASSET_TAGS = (); }; };
-		8401A2651BE9EC97008FA2FC /* LinkQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8401A25E1BE9EC97008FA2FC /* LinkQueue.cpp */; settings = {ASSET_TAGS = (); }; };
-		8401A2661BE9EC97008FA2FC /* LinkStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8401A2601BE9EC97008FA2FC /* LinkStack.cpp */; settings = {ASSET_TAGS = (); }; };
+		8401A2561BE9EC91008FA2FC /* SeqList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8401A2521BE9EC91008FA2FC /* SeqList.cpp */; };
+		8401A2571BE9EC91008FA2FC /* SeqQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8401A2541BE9EC91008FA2FC /* SeqQueue.cpp */; };
+		8401A2621BE9EC97008FA2FC /* BiTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8401A2581BE9EC97008FA2FC /* BiTree.cpp */; };
+		8401A2631BE9EC97008FA2FC /* DecimalTrueOctal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8401A25A1BE9EC97008FA2FC /* DecimalTrueOctal.cpp */; };
+		8401A2641BE9EC97008FA2FC /* LinkList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8401A25C1BE9EC97008FA2FC /* LinkList.cpp */; };
+		8401A2651BE9EC97008FA2FC /* LinkQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8401A25E1BE9EC97008FA2FC /* LinkQueue.cpp */; };
+		8401A2661BE9EC97008FA2FC /* LinkStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8401A2601BE9EC97008FA2FC /* LinkStack.cpp */; };
+		9D2239C91BF98474006C26E0 /* MGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D2239C71BF98474006C26E0 /* MGraph.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +47,8 @@
 		8401A25F1BE9EC97008FA2FC /* LinkQueue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LinkQueue.hpp; sourceTree = "<group>"; };
 		8401A2601BE9EC97008FA2FC /* LinkStack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LinkStack.cpp; sourceTree = "<group>"; };
 		8401A2611BE9EC97008FA2FC /* LinkStack.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LinkStack.hpp; sourceTree = "<group>"; };
+		9D2239C71BF98474006C26E0 /* MGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MGraph.cpp; sourceTree = "<group>"; };
+		9D2239C81BF98474006C26E0 /* MGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGraph.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,8 @@
 				8401A25F1BE9EC97008FA2FC /* LinkQueue.hpp */,
 				8401A2601BE9EC97008FA2FC /* LinkStack.cpp */,
 				8401A2611BE9EC97008FA2FC /* LinkStack.hpp */,
+				9D2239C71BF98474006C26E0 /* MGraph.cpp */,
+				9D2239C81BF98474006C26E0 /* MGraph.h */,
 			);
 			path = Xcode_ADT;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 			files = (
 				8401A24C1BE9EC70008FA2FC /* main.cpp in Sources */,
 				8401A2561BE9EC91008FA2FC /* SeqList.cpp in Sources */,
+				9D2239C91BF98474006C26E0 /* MGraph.cpp in Sources */,
 				8401A2661BE9EC97008FA2FC /* LinkStack.cpp in Sources */,
 				8401A2621BE9EC97008FA2FC /* BiTree.cpp in Sources */,
 				8401A2631BE9EC97008FA2FC /* DecimalTrueOctal.cpp in Sources */,
@@ -277,6 +283,7 @@
 				8401A2511BE9EC70008FA2FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

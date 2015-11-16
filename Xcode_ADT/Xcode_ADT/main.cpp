@@ -7,21 +7,16 @@
 //
 
 #include<iostream>
-#include "BiTree.cpp"
+#include "MGraph.cpp"
 
 using namespace std;
 
 int main() {
+    char a[4] = {'A', 'B', 'C' ,'D'};
     
     
-    BiTree<char> b;
-    int x;
-    
-    while (1) {
-        cin >> x;
-        b.PrintLevelNode(x);
-    }
-  
+    MGraph<char> mg(a, 4, 4);
+    mg.DFSTraverse(0);
     
     
     return 0;
