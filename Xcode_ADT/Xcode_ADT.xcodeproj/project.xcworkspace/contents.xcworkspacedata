@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../Xcode_ADT/SortAlgorithm.cpp">
+   </FileRef>
+   <FileRef
+      location = "group:../Xcode_ADT/SortAlgorithm.h">
+   </FileRef>
+   <FileRef
       location = "self:Xcode_ADT.xcodeproj">
    </FileRef>
 </Workspace>

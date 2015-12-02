@@ -7,17 +7,17 @@
 //
 
 #include<iostream>
-#include "MGraph.cpp"
+#include "SortAlgorithm.cpp"
 
 using namespace std;
 
 int main() {
-    char a[4] = {'A', 'B', 'C' ,'D'};
-    
-    
-    MGraph<char> mg(a, 4, 4);
-    mg.DFSTraverse(0);
-    
+    int a[11] = {0,4, 4, 1, 4, 3, 4, 2, 1, 3};
+    for (int i = 0; i < 10; i ++) {
+        cout << a[i];
+    }
+    SortAlgorithm<int> X;
+    X.InsertSort(a, 10);
     
     return 0;
 }
